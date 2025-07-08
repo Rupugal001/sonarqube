@@ -28,6 +28,11 @@ jobs:
       run: |
         # Replace with your test command
         pytest || echo "No tests yet"
+        
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+    
 
     # Optional: Run SonarQube Scanner
     - name: SonarQube Scan
