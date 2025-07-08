@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        .container { max-width: 400px; margin: auto; background: #f4f4f4; padding: 20px; border-radius: 10px; }
+        select, button { padding: 10px; margin: 5px; }
+        .weather-info { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Weather App</h2>
+        <form method="POST">
+            <select name="city">
+                <option value="Trichy">Trichy</option>
+                <option value="Covai">Covai</option>
+                <option value="Madurai">Madurai</option>
+                <option value="chennai">chennai</option>
+            </select>
+            <button type="submit">Get Weather</button>
+        </form>
+
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+
+        {% if weather %}
+            <div class="weather-info">
+                <h3>{{ weather.city }}, {{ weather.country }}</h3>
+                <p><strong>{{ weather.temperature }}°C</strong></p>
+                <p>{{ weather.description }}</p>
+                <img src="http://openweathermap.org/img/wn/{{ weather.icon }}.png" alt="Weather Icon">
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
